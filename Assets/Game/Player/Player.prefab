@@ -1219,6 +1219,7 @@ GameObject:
   - component: {fileID: 2391842794617662384}
   - component: {fileID: 1333214593393448932}
   - component: {fileID: 5981358503309205060}
+  - component: {fileID: 8633097225184366344}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1293,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 11400000, guid: 6fcf09cfb13228c46bb99af03ef8ac73, type: 2}
-  speedFraction: 0.8
+  speedFraction: 0.7
 --- !u!114 &1333214593393448932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,6 +1324,23 @@ MonoBehaviour:
   groundCheckRadius: 0.3
   groundCheckOffset: {x: 0, y: 0.1, z: 0.07}
   groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &8633097225184366344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033407025950695116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3307c9021199516488b23da9278837ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forwardRayOffset: {x: 0, y: 0.25, z: 0}
+  forwardRayLength: 0.8
+  obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
 --- !u!1 &5077885370071258072

@@ -21,6 +21,7 @@ namespace ParkourSystem.Control
         {
             GetComponent<Mover>().MoveTo(CameraRelativeMovement(), speedFraction);
             GetComponent<Mover>().LookAt(CameraRelativeMovement());
+            GetComponent<EnvironmentScanner>().ObstacleCheck();
         }
 
         Vector3 CameraRelativeMovement()
