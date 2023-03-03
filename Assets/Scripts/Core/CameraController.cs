@@ -33,7 +33,7 @@ namespace ParkourSystem.Core
             ApplyRotation();
         }
 
-        private void ApplyRotation()
+        void ApplyRotation()
         {
             invertXValue = invertX ? -1 : 1;
             invertYValue = invertY ? -1 : 1;

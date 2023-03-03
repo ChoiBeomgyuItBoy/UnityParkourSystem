@@ -94,7 +94,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""b04e3d54-2146-4afc-b8ec-d8b5bd2fe15d"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
