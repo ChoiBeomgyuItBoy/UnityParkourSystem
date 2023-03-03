@@ -1,7 +1,7 @@
 using ParkourSystem.Input;
 using UnityEngine;
 
-namespace ParkourSystem.CameraController
+namespace ParkourSystem.Core
 {
     public class CameraController : MonoBehaviour
     {
@@ -30,14 +30,19 @@ namespace ParkourSystem.CameraController
 
         void Update()
         {
+            ApplyRotation();
+        }
+
+        private void ApplyRotation()
+        {
             invertXValue = invertX ? -1 : 1;
             invertYValue = invertY ? -1 : 1;
 
             rotationX += playerInput.GetMouseValue().y * invertYValue * verticalRotationSpeed;
             rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
-            
+
             rotationY += playerInput.GetMouseValue().x * invertXValue * horizontalRotationSpeed;
-            
+
             Quaternion targetRotation = Quaternion.Euler(rotationX, rotationY, 0);
 
             Vector3 focusPosition = followTarget.position + new Vector3(framingOffset.x, framingOffset.y);
