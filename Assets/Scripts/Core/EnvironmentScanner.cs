@@ -25,7 +25,7 @@ namespace ParkourSystem.Core
 
             if(hitData.forwardHitFound)
             {
-                HeightCheck(ref hitData);
+                HeightRayCheck(ref hitData);
             }
 
             return hitData;
@@ -45,7 +45,7 @@ namespace ParkourSystem.Core
             Debug.DrawRay(forwardOrigin, transform.forward * forwardRayLength, hitColor);
         }
 
-        private void HeightCheck(ref ObstacleHitData hitData)
+        private void HeightRayCheck(ref ObstacleHitData hitData)
         {
             Vector3 heightOrigin = hitData.forwardHit.point + Vector3.up * heightRayLength;
 

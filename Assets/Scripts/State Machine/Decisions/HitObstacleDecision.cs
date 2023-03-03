@@ -11,13 +11,17 @@ namespace ParkourSystem.StateMachine.Decisions
 
         public override bool Decide(StateController controller)
         {
-            var obstacleCheck = controller.GetComponent<EnvironmentScanner>().ObstacleCheck();
+            var hitData = controller.GetComponent<EnvironmentScanner>().ObstacleCheck();
 
-            if(!obstacleCheck.forwardHitFound) return false;
+            if(!hitData.forwardHitFound) return false;
 
-            float height = obstacleCheck.heightHit.point.y - controller.transform.position.y;
+            float height = hitData.heightHit.point.y - controller.transform.position.y;
 
-            return height > minHeight || height < maxHeight;
+            if(height < minHeight || height > maxHeight) return false;
+
+            Debug.Log(height);
+
+            return true;
         }
     }
 }
