@@ -22,6 +22,11 @@ namespace ParkourSystem.Core
         float invertXValue = 0;
         float invertYValue = 0;
 
+        public Quaternion GetPlanarRotation()
+        {
+            return Quaternion.Euler(0,  rotationY, 0);
+        }
+
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;

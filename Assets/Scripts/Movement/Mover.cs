@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ParkourSystem.Movement
@@ -27,7 +26,9 @@ namespace ParkourSystem.Movement
         public void MoveTo(Vector3 motion, float speedFraction)
         {
             float speed = maxSpeed * Mathf.Clamp01(speedFraction);
-            controller.Move(motion * speed * Time.deltaTime);
+            Vector3 forces = GetComponent<ForceReceiver>().GetTotalForce();
+
+            controller.Move((motion + forces)* speed * Time.deltaTime);
         }
 
         public void LookAt(Vector3 target)
@@ -36,7 +37,7 @@ namespace ParkourSystem.Movement
 
             transform.rotation = Quaternion.Lerp
             (
-                transform.rotation, Quaternion.LookRotation(target), 
+                transform.rotation, Quaternion.LookRotation(target),
                 Time.deltaTime * rotationDamp
             );
         }

@@ -1218,6 +1218,7 @@ GameObject:
   - component: {fileID: 5787109809395105136}
   - component: {fileID: 2391842794617662384}
   - component: {fileID: 1333214593393448932}
+  - component: {fileID: 5981358503309205060}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1239,7 +1240,7 @@ Transform:
   m_Children:
   - {fileID: 1945258636372949366}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &123755034800925719
 CharacterController:
@@ -1306,6 +1307,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
+  rotationDamp: 10
+--- !u!114 &5981358503309205060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033407025950695116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be05cd9923dfc2240811497f075e4cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckRadius: 0.3
+  groundCheckOffset: {x: 0, y: 0.1, z: 0.07}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &5077885370071258072
 GameObject:
   m_ObjectHideFlags: 0
