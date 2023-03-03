@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +11,7 @@ namespace ParkourSystem.Input
         Vector2 movementValue;
         Vector2 mouseValue;
 
-        public event Action onJump;
+        bool jumped = false;
 
         public Vector2 GetMovementValue()
         {
@@ -23,6 +21,11 @@ namespace ParkourSystem.Input
         public Vector2 GetMouseValue()
         {
             return mouseValue;
+        }
+
+        public bool Jumped()
+        {
+            return jumped;
         }
 
         void OnEnable()
@@ -49,9 +52,7 @@ namespace ParkourSystem.Input
 
         void Controls.IPlayerActions.OnJump(InputAction.CallbackContext context)
         {
-            if(!context.performed) return;
-
-            onJump?.Invoke();
+            jumped = context.performed;
         }
     }
 }

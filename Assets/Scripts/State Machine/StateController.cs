@@ -4,7 +4,7 @@ namespace ParkourSystem.StateMachine
 {
     public class StateController : MonoBehaviour
     {
-        [SerializeField] State defaultState;
+        [SerializeField] State initialState;
 
         State currentState = null;
 
@@ -17,7 +17,7 @@ namespace ParkourSystem.StateMachine
 
         private void Start()
         {
-            SwitchState(defaultState);
+            SwitchState(initialState);
         }
 
         private void Update()
