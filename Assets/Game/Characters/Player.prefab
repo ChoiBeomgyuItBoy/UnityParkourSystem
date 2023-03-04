@@ -2384,7 +2384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3702593816630711034, guid: 135841b5ad902b548a42e422fa71ba16, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3702593816630711034, guid: 135841b5ad902b548a42e422fa71ba16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2466,7 +2466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardRayOffset: {x: 0, y: 0.25, z: 0}
-  forwardRayLength: 1
+  forwardRayLength: 0.8
   heightRayLength: 5
   obstacleLayer:
     serializedVersion: 2
