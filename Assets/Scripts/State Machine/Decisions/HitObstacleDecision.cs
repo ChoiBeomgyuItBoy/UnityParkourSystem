@@ -19,8 +19,6 @@ namespace ParkourSystem.StateMachine.Decisions
 
             if(height < minHeight || height > maxHeight) return false;
 
-            Debug.Log(height);
-
             return true;
         }
     }
