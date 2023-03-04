@@ -9,6 +9,7 @@ namespace ParkourSystem.StateMachine.Actions
         [SerializeField] AvatarTarget matchBodyPart;
         [SerializeField] float matchStartTime = 0;
         [SerializeField] float matchTargetTime = 0;
+        [SerializeField] Vector3 matchPositionWeight = new Vector3(0, 1, 0);
 
         Vector3 matchPosition;
 
@@ -32,7 +33,7 @@ namespace ParkourSystem.StateMachine.Actions
             animator.MatchTarget
             (
                 matchPosition, controller.transform.rotation, 
-                matchBodyPart, new MatchTargetWeightMask(Vector3.up, 0),
+                matchBodyPart, new MatchTargetWeightMask(matchPositionWeight, 0),
                 matchStartTime, matchTargetTime
             );
         }
