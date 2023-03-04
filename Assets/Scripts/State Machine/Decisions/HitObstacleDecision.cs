@@ -17,6 +17,8 @@ namespace ParkourSystem.StateMachine.Decisions
 
             float height = hitData.heightHit.point.y - controller.transform.position.y;
 
+            if(height < 0.2f) return false;
+
             if(height < minHeight || height > maxHeight) return false;
 
             return true;

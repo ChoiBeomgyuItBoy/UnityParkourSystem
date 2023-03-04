@@ -2466,7 +2466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardRayOffset: {x: 0, y: 0.25, z: 0}
-  forwardRayLength: 0.8
+  forwardRayLength: 1
   heightRayLength: 5
   obstacleLayer:
     serializedVersion: 2
