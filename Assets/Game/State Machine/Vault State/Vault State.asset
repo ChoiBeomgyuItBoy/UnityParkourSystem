@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Vault State
   m_EditorClassIdentifier: 
   onEnterActions:
-  - {fileID: 11400000, guid: 7693133480ac75f47b45843d7264a8f5, type: 2}
   - {fileID: 11400000, guid: 89001161ec5fe2e4397d7d04e9947ab1, type: 2}
+  - {fileID: 11400000, guid: 7693133480ac75f47b45843d7264a8f5, type: 2}
   onTickActions:
   - {fileID: 11400000, guid: f2e1a411e35dda949ac9dc351e37350a, type: 2}
+  - {fileID: 11400000, guid: 1d8a9f74771e50d4d8ed7fa62c12c320, type: 2}
   onExitActions:
   - {fileID: 11400000, guid: 9bab64623b349b7409e68997c17337eb, type: 2}
   transitions:

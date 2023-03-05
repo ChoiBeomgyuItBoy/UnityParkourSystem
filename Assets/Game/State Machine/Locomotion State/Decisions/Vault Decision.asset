@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Vault Decision
   m_EditorClassIdentifier: 
   minHeight: 0.8
-  maxHeight: 1.2
+  maxHeight: 1.4
   obstacleTag: Fence

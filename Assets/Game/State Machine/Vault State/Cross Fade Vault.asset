@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Vault
   dampTime: 0.1
+  dynamicMirroring: 1
+  mirroringParameter: mirrorAction

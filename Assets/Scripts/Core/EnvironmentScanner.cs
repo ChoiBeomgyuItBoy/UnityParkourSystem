@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ParkourSystem.Core
@@ -10,7 +12,7 @@ namespace ParkourSystem.Core
         [SerializeField] float ledgeRayLength = 10;
         [SerializeField] LayerMask obstacleLayer;
         [SerializeField] float ledgeHeightTreshold = 0.75f;
-        [SerializeField] float ledgeOriginOffset = 0.1f;
+        [SerializeField] float ledgeOriginOffset = 0.5f;
 
         public struct ObstacleHitData
         {
@@ -46,23 +48,33 @@ namespace ParkourSystem.Core
             if(moveDirection == Vector3.zero) return false;
 
             Vector3 origin = transform.position + moveDirection * ledgeOriginOffset + Vector3.up;
-            bool inLedge = Physics.Raycast(origin, Vector3.down, out RaycastHit hit, ledgeRayLength, obstacleLayer);
+            List<RaycastHit> hits = new List<RaycastHit>();
+
+            bool inLedge = PhysicsUtil.ThreeRaycast
+            (
+                origin, Vector3.down, 0.25f, transform, out hits, 
+                ledgeRayLength, obstacleLayer, true
+            );
 
             if(inLedge)
             {
-                Debug.DrawRay(origin, Vector3.down * ledgeRayLength, Color.green);
+                var validHits = hits.Where((h) => transform.position.y - h.point.y > ledgeHeightTreshold).ToList();
 
-                var surfaceRayorigin = transform.position + moveDirection - new Vector3(0, 0.1f, 0);
-
-                if(Physics.Raycast(surfaceRayorigin, -moveDirection, out RaycastHit surfaceHit, 2, obstacleLayer))
+                if(validHits.Count() > 0)
                 {
-                    float height = transform.position.y - hit.point.y;
+                    var surfaceRayorigin = validHits[0].point;
+                    surfaceRayorigin.y = transform.position.y - 0.1f;
 
-                    if(height > ledgeHeightTreshold)
+                    if(Physics.Raycast(surfaceRayorigin, transform.position - surfaceRayorigin, out RaycastHit surfaceHit, 2, obstacleLayer))
                     {
+                        Debug.DrawLine(surfaceRayorigin, transform.position, Color.cyan);
+                        
+                        float height = transform.position.y - validHits[0].point.y;
+
                         ledgeData.angle = Vector3.Angle(transform.forward, surfaceHit.normal);
                         ledgeData.height = height;
                         ledgeData.surfaceHit = surfaceHit;
+                    
                         return true;
                     }
                 }

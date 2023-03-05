@@ -1,3 +1,4 @@
+using ParkourSystem.Core;
 using UnityEngine;
 
 namespace ParkourSystem.StateMachine
@@ -7,6 +8,15 @@ namespace ParkourSystem.StateMachine
         [SerializeField] State initialState;
 
         State currentState = null;
+
+        public Vector3 CamRelativeMovement(Vector2 inputValue)
+        {
+            CameraController cameraController = Camera.main.GetComponent<CameraController>();
+
+            Vector3 moveInput = new Vector3(inputValue.x, 0, inputValue.y);
+
+            return cameraController.GetPlanarRotation() * moveInput;
+        }
 
         public void SwitchState(State newState)
         {

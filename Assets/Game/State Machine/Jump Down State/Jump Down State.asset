@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1431d6d8eb7c046b208c993c75fb1a, type: 3}
   m_Name: Jump Down State
   m_EditorClassIdentifier: 
-  onEnterActions: []
-  onTickActions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: 3f2ccab1d5486274fbaa8c79c28314d8, type: 2}
+  onTickActions:
+  - {fileID: 11400000, guid: 753898297520f674196bfde939a700e4, type: 2}
   onExitActions: []
-  transitions: []
+  transitions:
+  - decisions:
+    - {fileID: 11400000, guid: 23a0931b812f48641992aeb757b35824, type: 2}
+    trueState: {fileID: 11400000, guid: f396175d1861ca34db85f0dcf4208d31, type: 2}

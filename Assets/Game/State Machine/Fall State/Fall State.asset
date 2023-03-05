@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1431d6d8eb7c046b208c993c75fb1a, type: 3}
   m_Name: Fall State
   m_EditorClassIdentifier: 
-  onEnterActions: []
-  onTickActions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: 68b6d5ab7aa458f4a90eed041c987690, type: 2}
+  onTickActions:
+  - {fileID: 11400000, guid: 753898297520f674196bfde939a700e4, type: 2}
   onExitActions: []
   transitions:
   - decisions:
     - {fileID: 11400000, guid: 630a7abcbf0c6c94fa30d4e0b8f6353e, type: 2}
-    trueState: {fileID: 11400000, guid: 666bbab4c240c3645b826442832c0827, type: 2}
+    trueState: {fileID: 11400000, guid: 2abb6176aa5cef94c81e164490f2dcd3, type: 2}

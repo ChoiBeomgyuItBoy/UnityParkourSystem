@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1431d6d8eb7c046b208c993c75fb1a, type: 3}
   m_Name: Locomotion State
   m_EditorClassIdentifier: 
-  onEnterActions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: e025cd5d2c9fc9f46a0dc1fd8af40e87, type: 2}
   onTickActions:
   - {fileID: 11400000, guid: 3a33369dfdbc89649be895791ae06630, type: 2}
+  - {fileID: 11400000, guid: 78721c411844a934d8b2e85de28b44de, type: 2}
   onExitActions: []
   transitions:
   - decisions:
@@ -33,3 +35,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 93f39ff9212e8744eb867dd41ffaa1d1, type: 2}
     - {fileID: 11400000, guid: ff11aa99de31b6c4799df1eaecc38348, type: 2}
     trueState: {fileID: 11400000, guid: bd833aa8674488d4394e9d0da4f3650b, type: 2}
+  - decisions:
+    - {fileID: 11400000, guid: 10929ffa36ddd784582b55c7086630d6, type: 2}
+    - {fileID: 11400000, guid: ff11aa99de31b6c4799df1eaecc38348, type: 2}
+    trueState: {fileID: 11400000, guid: a2250606f9354f1439e27d30d096b647, type: 2}

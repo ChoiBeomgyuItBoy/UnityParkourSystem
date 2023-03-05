@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9b64bf92383b94ab71bd414ec71754, type: 3}
   m_Name: Jump Down Over Decision
   m_EditorClassIdentifier: 
-  animationTag: 
-  decisionTime: 1
+  animationTag: Parkour
+  decisionTime: 0.6

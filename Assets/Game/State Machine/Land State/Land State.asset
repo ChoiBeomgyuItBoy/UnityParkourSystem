@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1431d6d8eb7c046b208c993c75fb1a, type: 3}
   m_Name: Land State
   m_EditorClassIdentifier: 
-  onEnterActions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: da17e85009dde5244a4fac2b78838904, type: 2}
   onTickActions: []
   onExitActions: []
-  transitions: []
+  transitions:
+  - decisions:
+    - {fileID: 11400000, guid: f9b0439a138f714489832af244de771c, type: 2}
+    trueState: {fileID: 11400000, guid: 666bbab4c240c3645b826442832c0827, type: 2}

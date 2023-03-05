@@ -2,6 +2,7 @@ using ParkourSystem.Core;
 using ParkourSystem.Input;
 using ParkourSystem.Movement;
 using UnityEngine;
+using static ParkourSystem.Core.EnvironmentScanner;
 
 namespace ParkourSystem.StateMachine.Actions
 {
@@ -15,17 +16,29 @@ namespace ParkourSystem.StateMachine.Actions
         {
             Mover mover = controller.GetComponent<Mover>();
             EnvironmentScanner scanner = controller.GetComponent<EnvironmentScanner>();
-            Vector3 moveDirection = CamRelativeMovement();
+            Vector3 moveDirection = controller.CamRelativeMovement(playerInput.GetMovementValue());
 
             bool onLedge = scanner.LedgeCheck(moveDirection, out var ledgeData);
 
             if(onLedge)
             {
-                float angle = Vector3.Angle(ledgeData.surfaceHit.normal, moveDirection);
+                float signedAngle = Vector3.SignedAngle(ledgeData.surfaceHit.normal, moveDirection, Vector3.up);
+                float angle = Mathf.Abs(signedAngle);
+
+                if(Vector3.Angle(moveDirection, controller.transform.forward) >= 80)
+                {
+                    mover.LookAt(moveDirection);
+                    return;
+                }
     
-                if(angle < 90)
+                if(angle < 60)
                 {
                     mover.MoveTo(Vector3.zero, 0);
+                }
+                else if(angle < 90)
+                {
+                    mover.MoveTo(LedgeMovement(ledgeData.surfaceHit.normal, signedAngle), speedFraction);
+                    mover.LookAt(moveDirection);
                 }
             }
             else
@@ -35,14 +48,13 @@ namespace ParkourSystem.StateMachine.Actions
             }
         }
 
-        Vector3 CamRelativeMovement()
+        Vector3 LedgeMovement(Vector3 ledgeNormal, float signedAngle)
         {
-            Vector2 inputValue = playerInput.GetMovementValue();
-            CameraController cameraController = Camera.main.GetComponent<CameraController>();
+            Vector3 left = Vector3.Cross(Vector3.up, ledgeNormal);
 
-            Vector3 moveInput = new Vector3(inputValue.x, 0, inputValue.y);
+            Vector3 direction = left * Mathf.Sign(signedAngle);
 
-            return cameraController.GetPlanarRotation() * moveInput;
+            return direction;
         }
     }
 }
