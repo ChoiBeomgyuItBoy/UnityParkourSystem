@@ -15,4 +15,7 @@ MonoBehaviour:
   onEnterActions: []
   onTickActions: []
   onExitActions: []
-  transitions: []
+  transitions:
+  - decisions:
+    - {fileID: 11400000, guid: 630a7abcbf0c6c94fa30d4e0b8f6353e, type: 2}
+    trueState: {fileID: 11400000, guid: 666bbab4c240c3645b826442832c0827, type: 2}

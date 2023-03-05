@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d56348f54c2f7a40ab96b47a7047e4a, type: 3}
-  m_Name: Upadate Locomotion Blend Tree
+  m_Script: {fileID: 11500000, guid: e9c141b49b6e9fd4498c9445b8a8748b, type: 3}
+  m_Name: Cross Fade Falling
   m_EditorClassIdentifier: 
-  parameter: 
+  animationName: 
   dampTime: 0.1
-  playerInput: {fileID: 0}
+  dynamicMirroring: 0
+  mirroringParameter: 

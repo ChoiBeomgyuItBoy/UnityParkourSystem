@@ -8,7 +8,6 @@ namespace ParkourSystem.StateMachine.Decisions
     {
         public override bool Decide(StateController controller)
         {
-            Debug.Log(controller.GetComponent<ForceReceiver>().IsGrouned());
             return controller.GetComponent<ForceReceiver>().IsGrouned();
         }
     }

@@ -19,7 +19,7 @@ namespace ParkourSystem.StateMachine.Actions
                 SetMirroring(controller);
             }
 
-            controller.GetComponent<Animator>().CrossFade(animationName, dampTime);
+            controller.GetComponent<Animator>().CrossFadeInFixedTime(animationName, dampTime);
         }
 
         private void SetMirroring(StateController controller)
