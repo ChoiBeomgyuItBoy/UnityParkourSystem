@@ -1,4 +1,5 @@
 using ParkourSystem.Input;
+using ParkourSystem.Movement;
 using UnityEngine;
 
 namespace ParkourSystem.StateMachine.Actions
@@ -8,14 +9,14 @@ namespace ParkourSystem.StateMachine.Actions
     {
         [SerializeField] string parameter = "";
         [SerializeField] float dampTime = 0.1f;
-        [SerializeField] PlayerInput playerInput;
 
         public override void Act(StateController controller)
         {
-            Vector2 inputVector = playerInput.GetMovementValue();
-            float inputValue = Mathf.Abs(inputVector.x) + Mathf.Abs(inputVector.y);
+            var charController = controller.GetComponent<CharacterController>();
+            var animator = controller.GetComponent<Animator>();
+            float magnitude = charController.velocity.magnitude;
 
-            controller.GetComponent<Animator>().SetFloat(parameter, inputValue, dampTime, Time.deltaTime);
+            animator.SetFloat(parameter, magnitude, dampTime, Time.deltaTime);
         }
     }
 }

@@ -14,12 +14,28 @@ namespace ParkourSystem.StateMachine.Actions
         public override void Act(StateController controller)
         {
             Mover mover = controller.GetComponent<Mover>();
+            EnvironmentScanner scanner = controller.GetComponent<EnvironmentScanner>();
+            Vector3 moveDirection = CamRelativeMovement();
 
-            mover.MoveTo(CalculateMovement(), speedFraction);
-            mover.LookAt(CalculateMovement());
+            bool onLedge = scanner.LedgeCheck(moveDirection, out var ledgeData);
+
+            if(onLedge)
+            {
+                float angle = Vector3.Angle(ledgeData.surfaceHit.normal, moveDirection);
+    
+                if(angle < 90)
+                {
+                    mover.MoveTo(Vector3.zero, 0);
+                }
+            }
+            else
+            {
+                mover.MoveTo(moveDirection, speedFraction);
+                mover.LookAt(moveDirection);
+            }
         }
 
-        Vector3 CalculateMovement()
+        Vector3 CamRelativeMovement()
         {
             Vector2 inputValue = playerInput.GetMovementValue();
             CameraController cameraController = Camera.main.GetComponent<CameraController>();
