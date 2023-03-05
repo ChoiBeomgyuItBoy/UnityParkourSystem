@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1431d6d8eb7c046b208c993c75fb1a, type: 3}
   m_Name: Step Up State
   m_EditorClassIdentifier: 
-  onEnterActions: []
-  onTickActions: []
-  onExitActions: []
-  transitions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: b4eb3ecfa1e64fb40832aae091488d73, type: 2}
+  - {fileID: 11400000, guid: 7693133480ac75f47b45843d7264a8f5, type: 2}
+  - {fileID: 11400000, guid: 1d8a9f74771e50d4d8ed7fa62c12c320, type: 2}
+  onTickActions:
+  - {fileID: 11400000, guid: 1d8a9f74771e50d4d8ed7fa62c12c320, type: 2}
+  - {fileID: 11400000, guid: ccfe9233bc398f9418a997c5d7527dbf, type: 2}
+  onExitActions:
+  - {fileID: 11400000, guid: 9bab64623b349b7409e68997c17337eb, type: 2}
+  transitions:
+  - decisions:
+    - {fileID: 11400000, guid: 70eec90def4f7064fba6aa18dab77732, type: 2}
+    trueState: {fileID: 11400000, guid: 666bbab4c240c3645b826442832c0827, type: 2}

@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e87cfe3649165d40a758b461c655e5b, type: 3}
   m_Name: Step Up Decision
   m_EditorClassIdentifier: 
+  minHeight: 0.3
+  maxHeight: 0.8
+  obstacleTag: Obstacle

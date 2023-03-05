@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f299effcccb691045a66404b4389226a, type: 3}
   m_Name: Step Up Target Matching
   m_EditorClassIdentifier: 
-  matchBodyPart: 0
-  matchStartTime: 0
-  matchTargetTime: 0
+  matchBodyPart: 3
+  matchStartTime: 0.3
+  matchTargetTime: 0.51
+  matchPositionWeight: {x: 0, y: 1, z: 0}

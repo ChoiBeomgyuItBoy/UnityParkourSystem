@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1431d6d8eb7c046b208c993c75fb1a, type: 3}
   m_Name: Vault State
   m_EditorClassIdentifier: 
-  onEnterActions: []
-  onTickActions: []
-  onExitActions: []
-  transitions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: 7693133480ac75f47b45843d7264a8f5, type: 2}
+  - {fileID: 11400000, guid: 89001161ec5fe2e4397d7d04e9947ab1, type: 2}
+  onTickActions:
+  - {fileID: 11400000, guid: f2e1a411e35dda949ac9dc351e37350a, type: 2}
+  onExitActions:
+  - {fileID: 11400000, guid: 9bab64623b349b7409e68997c17337eb, type: 2}
+  transitions:
+  - decisions:
+    - {fileID: 11400000, guid: fec1151ea77489a458dc2ad29be6165a, type: 2}
+    trueState: {fileID: 11400000, guid: 666bbab4c240c3645b826442832c0827, type: 2}

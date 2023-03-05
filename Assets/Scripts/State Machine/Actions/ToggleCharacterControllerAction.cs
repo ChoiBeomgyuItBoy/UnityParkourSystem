@@ -1,4 +1,3 @@
-using ParkourSystem.Movement;
 using UnityEngine;
 
 namespace ParkourSystem.StateMachine.Actions

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc8c79666e8b2b4898eedd22fb62550, type: 3}
   m_Name: Look At Obstacle Action
   m_EditorClassIdentifier: 
-  rotationDamp: 10
+  rotationDamp: 100

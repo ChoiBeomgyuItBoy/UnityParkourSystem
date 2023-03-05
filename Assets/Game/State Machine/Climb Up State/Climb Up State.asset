@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1431d6d8eb7c046b208c993c75fb1a, type: 3}
   m_Name: Climb Up State
   m_EditorClassIdentifier: 
-  onEnterActions: []
-  onTickActions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: 32c4d350a39275a43a7dc304c1e2bebb, type: 2}
+  onTickActions:
+  - {fileID: 11400000, guid: 1d8a9f74771e50d4d8ed7fa62c12c320, type: 2}
+  - {fileID: 11400000, guid: 8ab7240fd23323a4a8f90e0e1f26176f, type: 2}
   onExitActions: []
-  transitions: []
+  transitions:
+  - decisions:
+    - {fileID: 11400000, guid: 89a750e5b976c7745b70cf453b57fdb9, type: 2}
+    trueState: {fileID: 11400000, guid: 666bbab4c240c3645b826442832c0827, type: 2}

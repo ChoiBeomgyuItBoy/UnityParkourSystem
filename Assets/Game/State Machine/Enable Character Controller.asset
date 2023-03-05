@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39904edd32299d43a2f1e865d2eb832, type: 3}
   m_Name: Enable Character Controller
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1

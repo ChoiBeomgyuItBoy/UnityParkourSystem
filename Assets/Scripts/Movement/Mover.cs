@@ -31,15 +31,5 @@ namespace ParkourSystem.Movement
         {
             controller = GetComponent<CharacterController>();
         }
-
-        void Update()
-        {
-            GetComponent<Animator>().SetFloat("movementSpeed", GetLocalVelocity(), 0.1f, Time.deltaTime);
-        }
-
-        float GetLocalVelocity()
-        {
-            return transform.InverseTransformDirection(controller.velocity).magnitude;
-        }
     }
 }

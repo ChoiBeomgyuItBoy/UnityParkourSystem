@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552edc67eacf66446af427a4a6d4b56b, type: 3}
   m_Name: Jump Input Decision
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 11400000, guid: 6fcf09cfb13228c46bb99af03ef8ac73, type: 2}
   inputType: 0

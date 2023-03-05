@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Jump Up Over Decision
   m_EditorClassIdentifier: 
   animationTag: Parkour
-  decisionTime: 1
+  decisionTime: 0.7

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e87cfe3649165d40a758b461c655e5b, type: 3}
   m_Name: Climb Up Decision
   m_EditorClassIdentifier: 
-  minHeight: 0
-  maxHeight: 1
+  minHeight: 1.5
+  maxHeight: 2.5
+  obstacleTag: Obstacle

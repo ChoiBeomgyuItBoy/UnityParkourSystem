@@ -1,5 +1,6 @@
 using ParkourSystem.Core;
 using UnityEngine;
+using static ParkourSystem.Core.EnvironmentScanner;
 
 namespace ParkourSystem.StateMachine.Actions
 {
@@ -10,14 +11,13 @@ namespace ParkourSystem.StateMachine.Actions
         [SerializeField] float matchStartTime = 0;
         [SerializeField] float matchTargetTime = 0;
         [SerializeField] Vector3 matchPositionWeight = new Vector3(0, 1, 0);
+        [SerializeField] bool dynamicMatching = false;
 
         Vector3 matchPosition;
 
         public override void Act(StateController controller)
         {
-            var hitData = controller.GetComponent<EnvironmentScanner>().ObstacleCheck();
-
-            matchPosition = hitData.heightHit.point;
+            matchPosition = controller.GetComponent<EnvironmentScanner>().GetMatchPosition();
 
             MatchTarget(controller);
         }
@@ -25,17 +25,25 @@ namespace ParkourSystem.StateMachine.Actions
         private void MatchTarget(StateController controller)
         {
             Animator animator = controller.GetComponent<Animator>();
+            var hitData = controller.GetComponent<EnvironmentScanner>().ObstacleCheck();
 
             if(animator.IsInTransition(0)) return;
             if(animator.isMatchingTarget) return;
-            if(matchPosition == Vector3.zero) return;
+            if(!hitData.forwardHitFound) return;
 
             animator.MatchTarget
             (
                 matchPosition, controller.transform.rotation, 
-                matchBodyPart, new MatchTargetWeightMask(matchPositionWeight, 0),
+                GetTarget(hitData), new MatchTargetWeightMask(matchPositionWeight, 0),
                 matchStartTime, matchTargetTime
             );
+        }
+
+        private AvatarTarget GetTarget(ObstacleHitData hitData)
+        {
+            if(!dynamicMatching) return matchBodyPart;
+
+            return hitData.avatarTarget;
         }
     }
 }

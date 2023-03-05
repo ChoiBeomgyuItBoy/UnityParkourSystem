@@ -13,5 +13,23 @@ MonoBehaviour:
   m_Name: Locomotion State
   m_EditorClassIdentifier: 
   onEnterActions: []
-  onTickActions: []
+  onTickActions:
+  - {fileID: 11400000, guid: 3a33369dfdbc89649be895791ae06630, type: 2}
   onExitActions: []
+  transitions:
+  - decisions:
+    - {fileID: 11400000, guid: d7192718d4db63b45a1e0feefa68892c, type: 2}
+    - {fileID: 11400000, guid: ff11aa99de31b6c4799df1eaecc38348, type: 2}
+    trueState: {fileID: 11400000, guid: 75c33de9ace37be4fb6187ab51ce647d, type: 2}
+  - decisions:
+    - {fileID: 11400000, guid: 191a7fcd59932c145b1a1a6725be646c, type: 2}
+    - {fileID: 11400000, guid: ff11aa99de31b6c4799df1eaecc38348, type: 2}
+    trueState: {fileID: 11400000, guid: 0dda7adc763d62d44a0124b9176ef4b7, type: 2}
+  - decisions:
+    - {fileID: 11400000, guid: 0d2116c7ce715fd4c959ffc366810b33, type: 2}
+    - {fileID: 11400000, guid: ff11aa99de31b6c4799df1eaecc38348, type: 2}
+    trueState: {fileID: 11400000, guid: f61e4c8c285e6824dbc2cd8cb5ef4f88, type: 2}
+  - decisions:
+    - {fileID: 11400000, guid: 93f39ff9212e8744eb867dd41ffaa1d1, type: 2}
+    - {fileID: 11400000, guid: ff11aa99de31b6c4799df1eaecc38348, type: 2}
+    trueState: {fileID: 11400000, guid: bd833aa8674488d4394e9d0da4f3650b, type: 2}

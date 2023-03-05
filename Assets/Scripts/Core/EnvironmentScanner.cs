@@ -15,6 +15,23 @@ namespace ParkourSystem.Core
             public bool heightHitFound;
             public RaycastHit forwardHit;
             public RaycastHit heightHit;
+            public AvatarTarget avatarTarget;
+        }
+
+        public Vector3 GetMatchPosition()
+        {
+            return ObstacleCheck().heightHit.point;
+        }
+
+        public bool ShouldMirror()
+        {
+            var hitData = ObstacleCheck();
+
+            var hitPoint = hitData.forwardHit.transform.InverseTransformPoint(hitData.forwardHit.point);
+
+            var shouldMirror = hitPoint.z < 0 && hitPoint.x < 0 || hitPoint.z > 0 && hitPoint.x > 0;
+
+            return shouldMirror;
         }
 
         public ObstacleHitData ObstacleCheck()

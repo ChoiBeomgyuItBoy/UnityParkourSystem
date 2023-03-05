@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e87cfe3649165d40a758b461c655e5b, type: 3}
   m_Name: Vault Decision
   m_EditorClassIdentifier: 
-  minHeight: 0
-  maxHeight: 1
-  obstacleTag: Obstacle
+  minHeight: 0.8
+  maxHeight: 1.2
+  obstacleTag: Fence

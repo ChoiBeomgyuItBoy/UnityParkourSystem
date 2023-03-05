@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f299effcccb691045a66404b4389226a, type: 3}
-  m_Name: Climb Up Target Matching
+  m_Script: {fileID: 11500000, guid: 2d56348f54c2f7a40ab96b47a7047e4a, type: 3}
+  m_Name: Upadate Locomotion Blend Tree
   m_EditorClassIdentifier: 
-  matchBodyPart: 5
-  matchStartTime: 0.08
-  matchTargetTime: 0.28
-  matchPositionWeight: {x: 0, y: 1, z: 1}
+  parameter: 
+  dampTime: 0.1
+  playerInput: {fileID: 0}
