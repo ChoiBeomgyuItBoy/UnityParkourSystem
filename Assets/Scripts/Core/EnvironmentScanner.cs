@@ -7,7 +7,9 @@ namespace ParkourSystem.Core
         [SerializeField] Vector3 forwardRayOffset = new Vector3(0, 0.25f, 0);
         [SerializeField] float forwardRayLength = 0.8f;
         [SerializeField] float heightRayLength = 5;
+        [SerializeField] float ledgeRayLength = 10;
         [SerializeField] LayerMask obstacleLayer;
+        [SerializeField] float ledgeHeightTreshold = 0.75f;
 
         public struct ObstacleHitData
         {
@@ -16,11 +18,6 @@ namespace ParkourSystem.Core
             public RaycastHit forwardHit;
             public RaycastHit heightHit;
             public AvatarTarget matchBodyPart;
-        }
-
-        public Vector3 GetMatchPosition()
-        {
-            return ObstacleCheck().heightHit.point;
         }
 
         public bool ShouldMirror()
@@ -32,6 +29,26 @@ namespace ParkourSystem.Core
             var shouldMirror = hitPoint.z < 0 && hitPoint.x < 0 || hitPoint.z > 0 && hitPoint.x > 0;
 
             return shouldMirror;
+        }
+
+        public bool CheckLedge(Vector3 moveDirection)
+        {
+            if(moveDirection == Vector3.zero) return false;
+
+            float originOffset = 0.5f;
+            Vector3 origin = transform.position + moveDirection * originOffset + Vector3.up;
+            bool inLedge = Physics.Raycast(origin, Vector3.down, out RaycastHit hit, ledgeRayLength, obstacleLayer);
+
+            if(inLedge)
+            {
+                Debug.DrawRay(origin, Vector3.down * ledgeRayLength, Color.green);
+
+                float height = transform.position.y - hit.point.y;
+
+                return height > ledgeHeightTreshold;
+            }
+
+            return false;
         }
 
         public ObstacleHitData ObstacleCheck()

@@ -2384,7 +2384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3702593816630711034, guid: 135841b5ad902b548a42e422fa71ba16, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3702593816630711034, guid: 135841b5ad902b548a42e422fa71ba16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2434,6 +2434,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5981358503309205060, guid: 135841b5ad902b548a42e422fa71ba16, type: 3}
+      propertyPath: groundCheckOffset.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8792126576272018086, guid: 135841b5ad902b548a42e422fa71ba16, type: 3}
       propertyPath: defaultState
       value: 
@@ -2468,9 +2472,11 @@ MonoBehaviour:
   forwardRayOffset: {x: 0, y: 0.25, z: 0}
   forwardRayLength: 0.8
   heightRayLength: 5
+  ledgeRayLength: 10
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
+  ledgeHeightTreshold: 0.75
 --- !u!4 &6107727681334300988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3702593816630711034, guid: 135841b5ad902b548a42e422fa71ba16, type: 3}

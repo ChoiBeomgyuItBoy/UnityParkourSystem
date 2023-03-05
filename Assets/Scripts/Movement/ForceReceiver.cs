@@ -12,6 +12,11 @@ namespace ParkourSystem.Movement
 
         float verticalVelocity = 0;
 
+        public bool IsGrouned()
+        {
+            return isGrounded;
+        }
+
         public Vector3 GetTotalForce()
         {
             return Vector3.up * verticalVelocity;

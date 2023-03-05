@@ -34,7 +34,7 @@ namespace ParkourSystem.StateMachine.Actions
 
             animator.MatchTarget
             (
-                scanner.GetMatchPosition(), 
+                hitData.heightHit.point, 
                 controller.transform.rotation, 
                 hitData.matchBodyPart, 
                 new MatchTargetWeightMask(matchPositionWeight, 0),
