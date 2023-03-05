@@ -28,7 +28,7 @@ namespace ParkourSystem.StateMachine.Actions
             var avatarTarget = scanner.ShouldMirror() ? AvatarTarget.RightHand : AvatarTarget.LeftHand;
             var currentHitData = scanner.ObstacleCheck();
               
-            currentHitData.avatarTarget = avatarTarget;
+            currentHitData.matchBodyPart = avatarTarget;
             controller.GetComponent<Animator>().SetBool(mirroringParameter, scanner.ShouldMirror());
         }
     }

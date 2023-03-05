@@ -15,7 +15,7 @@ namespace ParkourSystem.Core
             public bool heightHitFound;
             public RaycastHit forwardHit;
             public RaycastHit heightHit;
-            public AvatarTarget avatarTarget;
+            public AvatarTarget matchBodyPart;
         }
 
         public Vector3 GetMatchPosition()
