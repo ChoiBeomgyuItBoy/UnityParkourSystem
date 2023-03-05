@@ -8,10 +8,15 @@ namespace ParkourSystem.StateMachine.Decisions
     public class OnLedgeDecision : StateDecision
     {
         [SerializeField] PlayerInput playerInput;
+        [SerializeField] float minLedgeAngle = 50;
 
         public override bool Decide(StateController controller)
         {
-            return controller.GetComponent<EnvironmentScanner>().CheckLedge(CalculateMovement());
+            bool isOnLedge = controller.GetComponent<EnvironmentScanner>().LedgeCheck(CalculateMovement(), out var ledgeData);
+
+            var hitData = controller.GetComponent<EnvironmentScanner>().ObstacleCheck();
+
+            return isOnLedge && !hitData.forwardHitFound && ledgeData.angle <= minLedgeAngle;
         }
 
         Vector3 CalculateMovement()

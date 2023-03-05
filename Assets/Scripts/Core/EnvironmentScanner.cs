@@ -10,6 +10,7 @@ namespace ParkourSystem.Core
         [SerializeField] float ledgeRayLength = 10;
         [SerializeField] LayerMask obstacleLayer;
         [SerializeField] float ledgeHeightTreshold = 0.75f;
+        [SerializeField] float ledgeOriginOffset = 0.1f;
 
         public struct ObstacleHitData
         {
@@ -18,6 +19,13 @@ namespace ParkourSystem.Core
             public RaycastHit forwardHit;
             public RaycastHit heightHit;
             public AvatarTarget matchBodyPart;
+        }
+
+        public struct LedgeData
+        {
+            public float height;
+            public float angle;
+            public RaycastHit surfaceHit;
         }
 
         public bool ShouldMirror()
@@ -31,21 +39,33 @@ namespace ParkourSystem.Core
             return shouldMirror;
         }
 
-        public bool CheckLedge(Vector3 moveDirection)
+        public bool LedgeCheck(Vector3 moveDirection, out LedgeData ledgeData)
         {
+            ledgeData = new LedgeData();
+
             if(moveDirection == Vector3.zero) return false;
 
-            float originOffset = 0.5f;
-            Vector3 origin = transform.position + moveDirection * originOffset + Vector3.up;
+            Vector3 origin = transform.position + moveDirection * ledgeOriginOffset + Vector3.up;
             bool inLedge = Physics.Raycast(origin, Vector3.down, out RaycastHit hit, ledgeRayLength, obstacleLayer);
 
             if(inLedge)
             {
                 Debug.DrawRay(origin, Vector3.down * ledgeRayLength, Color.green);
 
-                float height = transform.position.y - hit.point.y;
+                var surfaceRayorigin = transform.position + moveDirection - new Vector3(0, 0.1f, 0);
 
-                return height > ledgeHeightTreshold;
+                if(Physics.Raycast(surfaceRayorigin, -moveDirection, out RaycastHit surfaceHit, 2, obstacleLayer))
+                {
+                    float height = transform.position.y - hit.point.y;
+
+                    if(height > ledgeHeightTreshold)
+                    {
+                        ledgeData.angle = Vector3.Angle(transform.forward, surfaceHit.normal);
+                        ledgeData.height = height;
+                        ledgeData.surfaceHit = surfaceHit;
+                        return true;
+                    }
+                }
             }
 
             return false;
